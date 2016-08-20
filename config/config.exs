@@ -17,6 +17,15 @@ config :ppush, Ppush.Endpoint,
   pubsub: [name: Ppush.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+
+config :guardian, Guardian,
+  issuer: "Ppush.#{Mix.env}",
+  ttl: {30, :days},
+  verify_issuer: true,
+  serializer: Ppush.GuardianSerializer,
+  secret_key: "0bfde4c8d02120583bfbf38218a897d4637faeb9b1d9f33fb983dd68e28858182ca7cdcbcdae479bd413fe15033612b564648ab0bfaa170d7df736d002027655"
+
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

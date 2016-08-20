@@ -10,9 +10,13 @@ defmodule Ppush.Session do
 
     user = Repo.one(q)
 
-    case check_password(password, user) do
-      true -> {:ok, user}
-      _ -> {:error, "Password or email is invalid"}
+    if user != nil do
+      case check_password(password, user) do
+        true -> {:ok, user}
+        _ -> {:error, "Password is invalid"}
+      end
+    else
+      {:error, "User is not found"}
     end
   end
 
