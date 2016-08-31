@@ -1,10 +1,16 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Ppush App!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-
-  <p>
-    <%= link gettext("Registration"), to: registration_path(@conn, :new) %>
+  <h2><%= gettext "Welcome to %{name}", name: "pPUSH App!" %></h2>
+  <p class="lead">
+    Easy Connector for web based applications.
+    <br/>
+    Convinuent API and Lightness work!
   </p>
+
+  <%= if !@current_user do %>
+    <p>
+      <%= link gettext("Registration"), to: registration_path(@conn, :new) %>
+    </p>
+  <% end %>
 </div>
 
 <div class="row marketing">
@@ -27,13 +33,13 @@
     <h4>Help</h4>
     <ul>
       <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
+        <a href="http://groups.google.com/group/phoenix-talk">API</a>
       </li>
       <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
+        <a href="http://webchat.freenode.net/?channels=elixir-lang">Ask a question</a>
       </li>
       <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
+        <a href="https://twitter.com/elixirphoenix">Send Email</a>
       </li>
     </ul>
   </div>
