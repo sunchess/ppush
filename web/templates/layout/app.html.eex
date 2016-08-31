@@ -26,6 +26,7 @@
           </ul>
         </nav>
         <span class="logo"></span>
+        <a class="link-home" href="/"><span class="first">p</span>PUSH</a>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

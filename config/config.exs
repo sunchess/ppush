@@ -23,7 +23,15 @@ config :guardian, Guardian,
   ttl: {30, :days},
   verify_issuer: true,
   serializer: Ppush.GuardianSerializer,
-  secret_key: "0bfde4c8d02120583bfbf38218a897d4637faeb9b1d9f33fb983dd68e28858182ca7cdcbcdae479bd413fe15033612b564648ab0bfaa170d7df736d002027655"
+  secret_key: to_string(Mix.env),
+  permissions: %{
+    default: [
+      :read_profile,
+      :write_profile,
+      :read_token,
+      :revoke_token,
+    ],
+  }
 
 
 # Configures Elixir's Logger

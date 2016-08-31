@@ -14,6 +14,11 @@ defmodule Ppush.Router do
     plug Guardian.Plug.LoadResource
   end
 
+  pipeline :admin_browser_auth do
+    plug Guardian.Plug.VerifySession, key: :admin
+    plug Guardian.Plug.LoadResource, key: :admin
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end

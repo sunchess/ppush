@@ -1,1 +1,12 @@
 /* This file is for your main application css. */
+a.link-home{
+  vertical-align: baseline;
+  display: inline-block;
+  position: relative;
+  top: -49px;
+  left: -22px;
+  text-decoration: none
+}
+/*.link-home .first{
+  color: red;
+}*/

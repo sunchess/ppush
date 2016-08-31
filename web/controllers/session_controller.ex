@@ -10,10 +10,16 @@ defmodule Ppush.SessionController do
 
   def create(conn, %{"session" => session_params}) do
     case Session.create(session_params["email"], session_params["password"]) do
-      {:ok, user} ->
+      {:ok, user, :user} ->
         conn
-        |> put_flash(:info, gettext("Your account was created"))
-        |> Guardian.Plug.sign_in(user, :token)
+        |> put_flash(:info, "You are logged in as user")
+        |> Guardian.Plug.sign_in(user, :access)
+        |> redirect(to: "/")
+      {:ok, user, :admin} ->
+        conn
+        |> put_flash(:info, "You are logged in as admin")
+        |> Guardian.Plug.sign_in(user, :access)
+        |> Guardian.Plug.sign_in(user, :access, key: :admin) #TODO: added perms to db and set it by Guardian perms perms: %{default: Guardian.Permissions.max})
         |> redirect(to: "/")
       {:error, _} ->
         conn

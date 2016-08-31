@@ -12,15 +12,21 @@ defmodule Ppush.Session do
 
     if user != nil do
       case check_password(password, user) do
-        true -> {:ok, user}
-        _ -> {:error, "Password is invalid"}
+        true ->
+          if user.admin do
+            {:ok, user, :admin}
+          else
+            {:ok, user, :user}
+          end
+        _ ->
+          {:error, "Password is invalid"}
       end
     else
       {:error, "User is not found"}
     end
   end
 
-  defp check_password(password, user)   do
+  defp check_password(password, user) do
     Comeonin.Bcrypt.checkpw(password, user.crypted_password)
   end
 end

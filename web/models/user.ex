@@ -26,4 +26,5 @@ defmodule Ppush.User do
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)
   end
+
 end
