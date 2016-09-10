@@ -1,0 +1,14 @@
+table.table.table-striped
+  thead
+    th Id
+    th Email
+    th Created At
+  tbody
+    = for user <- @users do
+      tr
+        td= link user.id, to: admin_users_path(@conn, :show, user.id)
+        td= user.email
+        td= date_format user.inserted_at
+
+
+= paginate @conn, @kerosene

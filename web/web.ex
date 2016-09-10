@@ -19,6 +19,7 @@ defmodule Ppush.Web do
   def model do
     quote do
       use Ecto.Schema
+      use Calecto.Schema, usec: true
 
       import Ecto
       import Ecto.Changeset
@@ -52,6 +53,7 @@ defmodule Ppush.Web do
       import Ppush.Router.Helpers
       import Ppush.ErrorHelpers
       import Ppush.Gettext
+      import Ppush.ViewHelpers
     end
   end
 

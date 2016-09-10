@@ -40,7 +40,9 @@ defmodule Ppush.Mixfile do
      {:cowboy, "~> 1.0"},
      {:phoenix_slime, "~> 0.6.0"},
      {:comeonin, "~> 2.4"},
-     {:guardian, "~> 0.12.0"}]
+     {:guardian, "~> 0.12.0"},
+     {:kerosene, "~> 0.3.0"},
+     {:calecto, "~> 0.16.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

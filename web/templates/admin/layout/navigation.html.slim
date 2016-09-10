@@ -1,0 +1,4 @@
+ul.nav.nav-tabs
+  li role='presentation' class="#{active_on_current(@conn, admin_users_path(@conn, :index)) }"
+    = link "Users", to: admin_users_path(@conn, :index)
+

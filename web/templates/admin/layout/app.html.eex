@@ -16,12 +16,9 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <%= if current_user = current_user(@conn) do %>
+            <%= if current_user = admin_user(@conn)do %>
               <li> <%= link "Hello, #{ current_user.email}", to: "" %></li>
               <li> <%= link gettext("Logout"), to: delete_session_path(@conn, :delete) %></li>
-            <%= else %>
-              <li><%= link gettext("Sign in"), to: session_path(@conn, :new) %></li>
-              <li><%= link gettext("Registration"), to: registration_path(@conn, :new) %></li>
             <% end %>
           </ul>
         </nav>
@@ -31,6 +28,9 @@
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+      <%= render "navigation.html", current_user: @current_user, conn: @conn %>
+
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>

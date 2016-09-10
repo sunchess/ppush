@@ -14,9 +14,15 @@ defmodule Ppush.Router do
     plug Guardian.Plug.LoadResource
   end
 
+  #only admin auth
   pipeline :admin_browser_auth do
     plug Guardian.Plug.VerifySession, key: :admin
     plug Guardian.Plug.LoadResource, key: :admin
+  end
+
+  #admin layout
+  pipeline :admin_layout do
+    plug :put_layout, {Ppush.Admin.LayoutView, :app}
   end
 
   pipeline :api do
@@ -31,6 +37,13 @@ defmodule Ppush.Router do
     resources "/session", SessionController, only: [:new, :create]
     get "/session/delete", SessionController, :delete, as: :delete_session
   end
+
+  scope "/admin", Ppush.Admin, as: :admin do
+    pipe_through [:browser, :admin_browser_auth, :admin_layout]
+
+    resources "/users", UsersController
+  end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", Ppush do
