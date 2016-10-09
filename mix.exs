@@ -19,7 +19,7 @@ defmodule Ppush.Mixfile do
   def application do
     [mod: {Ppush, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :silent_video, :arc_ecto]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +42,9 @@ defmodule Ppush.Mixfile do
      {:comeonin, "~> 2.4"},
      {:guardian, "~> 0.12.0"},
      {:kerosene, "~> 0.3.0"},
-     {:calecto, "~> 0.16.0"}]
+     {:calecto, "~> 0.16.0"},
+     {:silent_video, "~> 0.2.0"},
+     {:arc_ecto, "~> 0.4.4"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

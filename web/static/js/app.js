@@ -13,9 +13,16 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 
+import $ from "jquery"
 // Import local files
 //
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import React from "react";
+import ReactDOM from "react-dom";
+import Form from "./src/containers/MainPageForm";
+
+ReactDOM.render(<Form />, document.getElementById("main-page-form"))

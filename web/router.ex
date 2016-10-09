@@ -36,6 +36,7 @@ defmodule Ppush.Router do
     resources "/registrations", RegistrationController, only: [:new, :create]
     resources "/session", SessionController, only: [:new, :create]
     get "/session/delete", SessionController, :delete, as: :delete_session
+    post "/upload/create", UploadController, :create, as: :upload_file
   end
 
   scope "/admin", Ppush.Admin, as: :admin do

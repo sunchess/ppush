@@ -1,9 +1,9 @@
 <div class="jumbotron">
   <h2><%= gettext "Welcome to %{name}", name: "pPUSH App!" %></h2>
   <p class="lead">
-    Easy Connector for web based applications.
+    Here you can convert GIF images to mp4.
     <br/>
-    Convinuent API and Lightness work!
+    Why? Many sites are using GIF's animation but it's very slowly for loading and animation especially when using many files. After convert a GIF as mp4 you can use special player and not have "slow" GIFs any more.
   </p>
 
   <%= if !@current_user do %>
@@ -12,6 +12,11 @@
     </p>
   <% end %>
 </div>
+
+
+<div class="container" id="main-page-form">
+
+</div> <!-- /container -->
 
 <div class="row marketing">
   <div class="col-lg-6">

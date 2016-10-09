@@ -6,9 +6,11 @@ defmodule Ppush.PageController do
 
 
   def index(conn, _params, current_user, _claims) do
-    #IO.inspect(conn.private)
-    #IO.inspect(Guardian.Plug.current_resource(conn, :admin))
-    render conn, "index.html", current_user: current_user
+    #IO.inspect(conn.cookies)
+
+    conn
+    |> put_resp_cookie("_csrf_token", get_csrf_token, http_only: false)
+    |> render("index.html", current_user: current_user)
   end
 
   #def unauthenticated(conn, _params) do

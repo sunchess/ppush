@@ -6,6 +6,7 @@ defmodule Ppush.User do
     field :password, :string, virtual: true
     field :crypted_password, :string
     field :admin, :boolean, default: false
+    has_many :gifs, Ppush.Gif
 
     timestamps()
   end
